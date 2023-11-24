@@ -41,7 +41,7 @@
                         <td th:text="${cliente.profissao}"></td>
                         <td>
                             <a href="#" class="btn btn-warning">EDITAR</a>
-                            <a href="#" class="btn btn-danger">REMOVER</a>
+                            <a th:href="@{/cliente/{id}/excluir (id=${cliente.id})}" class="btn btn-danger" onclick="return confirm('Você tem certeza que deseja excluir o cliente?');">EXCLUIR</a>
                         </td>
                     </tr>
                 </tbody>

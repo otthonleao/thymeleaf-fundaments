@@ -1,8 +1,9 @@
 package dev.otthon.springclients.model;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -13,14 +14,15 @@ public class Cliente {
     @Column(nullable = false)
     private String nome;
     @Column(nullable = false, name = "data_nascimento")
-    private Date dataNascimento;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate  dataNascimento;
     @Column(nullable = false)
     private String profissao;
 
     public Cliente() {
     }
 
-    public Cliente(Long id, String nome, Date dataNascimento, String profissao) {
+    public Cliente(Long id, String nome, LocalDate dataNascimento, String profissao) {
         this.id = id;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
@@ -43,11 +45,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
