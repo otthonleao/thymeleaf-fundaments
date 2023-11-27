@@ -35,12 +35,12 @@
                 </thead>
                 <tbody>
                     <tr th:each="cliente : ${clientes}">
-                        <th scope="row" th:text"${cliente.id}"></th>
+                        <th scope="row" th:text="${cliente.id}"></th>
                         <td><a th:text="${cliente.nome}" th:href="@{/cliente/{id} (id=${cliente.id})}"></a></td>
                         <td th:text="${cliente.dataNascimento}"></td>
                         <td th:text="${cliente.profissao}"></td>
                         <td>
-                            <a href="#" class="btn btn-warning">EDITAR</a>
+                            <a th:href="@{/cliente/{id}/editar (id=${cliente.id})}" class="btn btn-warning">EDITAR</a>
                             <a th:href="@{/cliente/{id}/excluir (id=${cliente.id})}" class="btn btn-danger" onclick="return confirm('Você tem certeza que deseja excluir o cliente?');">EXCLUIR</a>
                         </td>
                     </tr>
@@ -51,7 +51,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <a href="#" class="btn btn-primary">Cadastrar novo Cliente</a>
+            <a th:href="@{/cliente/cadastrar}" class="btn btn-primary">Cadastrar novo Cliente</a>
         </div>
     </div>
 </main>
