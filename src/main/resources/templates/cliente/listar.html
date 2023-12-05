@@ -18,6 +18,7 @@
     <div class="row">
         <div class="col-sm-12">
             <h1>Listagem de Clientes</h1>
+            <p th:text="${ #locale }"></p>
         </div>
     </div>
 
@@ -37,7 +38,7 @@
                     <tr th:each="cliente : ${clientes}">
                         <th scope="row" th:text="${cliente.id}"></th>
                         <td><a th:text="${cliente.nome}" th:href="@{/cliente/{id} (id=${cliente.id})}"></a></td>
-                        <td th:text="${cliente.dataNascimento}"></td>
+                        <td th:text="${ #temporals.format(cliente.dataNascimento, 'dd/MM/yyyy') }"></td>
                         <td th:text="${cliente.profissao}"></td>
                         <td>
                             <a th:href="@{/cliente/{id}/editar (id=${cliente.id})}" class="btn btn-warning">EDITAR</a>
