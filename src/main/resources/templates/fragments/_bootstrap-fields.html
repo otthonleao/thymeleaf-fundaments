@@ -1,0 +1,14 @@
+<!--
+FRAGMENTOS PARAMETRIZADOS
+
+O conceito é o mais próximo de "componentes" que encontramos nos frameworks de front-end
+mais modernos atualmente.
+
+No exemplo do label e input temos atributos que são dinâmicos e para funcionar precisa
+receber parametros.
+-->
+
+<div th:fragment="input (field, label, type)">
+  <label th:for="{fiel}" class="form-label" th:text="${label}"></label>
+  <input th:type="${type}" class="form-control" th:id="${field}" th:field="*{__${field}__}">
+</div>
