@@ -19,12 +19,13 @@
         <div class="col-sm-12">
             <h1>Listagem de Clientes</h1>
             <p th:text="${ #locale }"></p>
+            <h5 th:if="${#lists.isEmpty(clientes)}">Não há clientes cadastrados no momento</h5>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-12">
-            <table class="table">
+            <table class="table" th:unless="${#lists.isEmpty(clientes)}">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
