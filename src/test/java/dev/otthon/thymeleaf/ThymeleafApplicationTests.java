@@ -1,10 +1,10 @@
-package dev.otthon.springclients;
+package dev.otthon.thymeleaf;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringClientsThymeleafApplicationTests {
+class ThymeleafApplicationTests {
 
     @Test
     void contextLoads() {

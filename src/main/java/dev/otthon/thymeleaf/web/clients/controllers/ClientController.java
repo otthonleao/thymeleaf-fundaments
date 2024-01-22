@@ -1,11 +1,11 @@
-package dev.otthon.springclients.web.clients.controllers;
+package dev.otthon.thymeleaf.web.clients.controllers;
 
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import dev.otthon.springclients.core.repositories.ClientRepository;
-import dev.otthon.springclients.web.clients.dtos.ClientForm;
-import dev.otthon.springclients.web.clients.dtos.ClientViewModel;
+import dev.otthon.thymeleaf.core.repositories.ClientRepository;
+import dev.otthon.thymeleaf.web.clients.dtos.ClientForm;
+import dev.otthon.thymeleaf.web.clients.dtos.ClientViewModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

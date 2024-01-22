@@ -1,4 +1,4 @@
-package dev.otthon.springclients.web.common.handlers;
+package dev.otthon.thymeleaf.web.common.handlers;
 
 import java.util.Map;
 import java.util.NoSuchElementException;

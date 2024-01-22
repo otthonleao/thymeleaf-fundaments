@@ -1,13 +1,13 @@
-package dev.otthon.springclients;
+package dev.otthon.thymeleaf;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringClientsThymeleafApplication {
+public class ThymeleafApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringClientsThymeleafApplication.class, args);
+        SpringApplication.run(ThymeleafApplication.class, args);
     }
 
 }

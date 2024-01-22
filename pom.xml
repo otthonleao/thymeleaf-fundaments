@@ -11,8 +11,8 @@
     <groupId>dev.otthon</groupId>
     <artifactId>spring-clients-thymeleaf</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-clients-thymeleaf</name>
-    <description>spring-clients-thymeleaf</description>
+    <name>thymeleaf-fundaments</name>
+    <description>thymeleaf-fundaments</description>
     <properties>
         <java.version>17</java.version>
     </properties>

@@ -1,7 +1,7 @@
-package dev.otthon.springclients.web.clients.dtos;
+package dev.otthon.thymeleaf.web.clients.dtos;
 
-import dev.otthon.springclients.core.models.Client;
-import dev.otthon.springclients.core.utils.StringUtils;
+import dev.otthon.thymeleaf.core.models.Client;
+import dev.otthon.thymeleaf.core.utils.StringUtils;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

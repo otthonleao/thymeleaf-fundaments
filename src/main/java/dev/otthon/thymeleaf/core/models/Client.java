@@ -1,4 +1,4 @@
-package dev.otthon.springclients.core.models;
+package dev.otthon.thymeleaf.core.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

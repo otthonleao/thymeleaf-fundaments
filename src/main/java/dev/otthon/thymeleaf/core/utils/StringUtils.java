@@ -1,4 +1,4 @@
-package dev.otthon.springclients.core.utils;
+package dev.otthon.thymeleaf.core.utils;
 
 public class StringUtils {
     

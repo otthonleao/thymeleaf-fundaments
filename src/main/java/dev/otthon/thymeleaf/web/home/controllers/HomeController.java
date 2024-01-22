@@ -1,4 +1,4 @@
-package dev.otthon.springclients.web.home.controllers;
+package dev.otthon.thymeleaf.web.home.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

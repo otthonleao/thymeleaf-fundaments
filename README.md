@@ -41,3 +41,15 @@ Após o processamento do template realizado pelo Thymeleaf será gerado um códi
   </li>
 </ul>
 ```
+### Starter do Thymeleaf no `pom.xml`
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+```
+
+## Referências de Links e Imagens
+````html
+<link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css}">
+````
