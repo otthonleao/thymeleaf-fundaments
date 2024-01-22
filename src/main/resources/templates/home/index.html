@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Thymeleaf Fundamentos</title>
+
+  <!-- Pico CSS Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css">
+</head>
+<body>
+  <nav class="container-fluid">
+    <ul>
+      <li><strong>Otthon Leão</strong></li>
+    </ul>
+    <ul>
+      <li><a href="#">Ir para Clientes</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <h1>Thymeleaf Engine</h1>
+    <p>
+      O Thymeleaf é um template engine que renderiza páginas HTML no back-end de forma dinâmica com Java e Spring. Sendo assim, permite a incorporação de linguagens de programação no HTML possibilitando o uso de estruturas de condição, repetição, herança e diversos outros recursos.
+    </p>
+  <span>
+    <h3>Thymeleaf vs JSP</h3>
+    <p>
+      Ambos são template engine para o back-end com Java, porém o Thymeleaf é considerado uma solução mais moderna e flexível do que o JSP que é mais verboso, difícil de trabalhar com padrões de projetos atuais e suporte limitado ao HTML 5 e CSS3.
+    </p>
+    <ul>
+      <li>Permite os desenvolvedores criarem páginas dinâmicas com HTML 5, CSS3, Bootstrap entre outros</li>
+      <li>Iniciantes de HTML, CSS e JS encontram facilidade, pois a unica diferença é a possibilidade de usar uma variável Java para renderizar direto no HTML</li>
+      <li>Possui starter oficial no Spring Boot</li>
+      <li>Possibilidade de separar a apresentação da regra de negócio, facilitando o uso do MVC</li>
+      <li>Não precisa de uma Servlet para abrir a página, assim a equipe de design pode editar o HTML e CSS e verificar os resultados das mudanças</li>
+    </ul>
+  </span>
+
+
+    <h3>Como Funciona?</h3>
+    <p>
+      Os navegadores renderizam somente código HTML e o Thymeleaf é a ferramenta que vai traduzir o código Java e incorporar no HTML. Exemplo:
+    </p>
+    <code>
+      &lt;ul&gt;<br>
+          &lt;li th:each="user : ${users}"	&gt;<br>
+      &lt;a<br>
+                  th:href="/user/{username} (username=${user.username})"<br>
+                  th:text="${user.firstname} + ' ' + ${user.lastname}"<br>
+      &gt;&lt;/a&gt;<br>
+      &lt;/li&gt;<br>
+      &lt;/ul&gt;<br>
+    </code>
+
+  </main>
+</body>
+</html>
