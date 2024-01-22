@@ -49,7 +49,11 @@ Após o processamento do template realizado pelo Thymeleaf será gerado um códi
 </dependency>
 ```
 
-## Referências de Links e Imagens
+## th:href="@{ ... }" - Referências de Links CSS e outros
 ````html
 <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css}">
+<a th:href="@{/clients/create}" role="button">Novo Cliente</a>
+<a th:href="@{/clients/edit/{id} (id=${client.id})}" role="button">Editar Cliente</a>
+<a th:href="@{/clients/edit/{id}/{name} (id=${client.id}, ${client.name)}" role="button">Editar Cliente</a>
+<a th:href="@{/clients/delete/{id} (id=${client.id})}" onclick="return confirm('Tem certeza que deseja excluir?')" role="button">Excluir Cliente</a>
 ````

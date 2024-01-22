@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Error 404 - Thymeleaf Fundamentos</title>
   <!-- Pico CSS Styles -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css">
+  <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css}">
 </head>
 <body>
   <nav class="container-fluid">
@@ -13,7 +13,7 @@
       <li><strong>Thymeleaf Fundaments</strong></li>
     </ul>
     <ul>
-      <li><a href="#">Ir para Clientes</a></li>
+      <li><a th:href="@{/clients}">Ir para Clientes</a></li>
     </ul>
   </nav>
 

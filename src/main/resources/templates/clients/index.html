@@ -6,7 +6,7 @@
   <title>Listagem de Clientes</title>
 
   <!-- Pico CSS Styles -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css">
+  <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css}">
 </head>
 <body>
   <nav class="container-fluid">
@@ -14,7 +14,7 @@
       <li><strong>Thymeleaf Fundamentos</strong></li>
     </ul>
     <ul>
-      <li><a href="#">Clientes</a></li>
+      <li><a th:href="@{/clients}">Ir para Clientes</a></li>
     </ul>
   </nav>
 
@@ -28,6 +28,7 @@
           <th scope="col">Nome</th>
           <th scope="col">E-mail</th>
           <th scope="col">Telefone</th>
+          <th scope="col">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -36,11 +37,15 @@
           <td th:text="${client.name}">Cleyson Lima</td>
           <td th:text="${client.email}">cleyson@mail.com</td>
           <td th:text="${client.phone}">(11) 99999-9999</td>
+          <td>
+            <a th:href="@{/clients/edit/{id} (id=${client.id})}" role="button">Editar Cliente</a>
+            <a th:href="@{/clients/delete/{id} (id=${client.id})}" onclick="return confirm('Tem certeza que deseja excluir?')" role="button">Excluir Cliente</a>
+          </td>
         </tr>
       </tbody>
     </table>
 
-    <a href="#" role="button">Novo cliente</a>
+    <a th:href="@{/clients/create}" role="button">Novo Cliente</a>
   </main>
 </body>
 </html>
