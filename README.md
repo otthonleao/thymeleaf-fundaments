@@ -64,9 +64,32 @@ Usando variáveis ou id:
 <a th:href="@{/clients/edit/{id}/{name} (id=${client.id}, ${client.name)}" role="button">Editar Cliente</a>
 <a th:href="@{/clients/delete/{id} (id=${client.id})}" onclick="return confirm('Tem certeza que deseja excluir?')" role="button">Excluir Cliente</a>
 ```
-## Injeção de Conteúdo 
+## th:text="${ .. }" - Injeção de Conteúdo
 
 ```html
 <td th:text="${client.name}">Otthon Leão</td>
 <td>[[${client.name}]]</td>
+```
+
+## th:each=".. : ${..}" - Iteração e tabela
+É possível trabalhar com listas como se fosse um forEach
+```html
+<table>
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Telefone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client : ${clients}">
+        <th scope="row" th:text="${client.id}">1</th>
+        <td th:text="${client.name}">Otthon Leão</td>
+        <td>[[${client.email}]]</td>
+        <td th:utext="${client.phone}">(11) 99999-9999</td>
+    </tr>
+    </tbody>
+</table>
 ```
