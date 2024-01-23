@@ -132,8 +132,8 @@ E para chamar o fragmento em uma determinada página pode ser utilizado dento de
 <div th:replace="~{fragments/_navbar :: navbar}"></div>
 ```
 #### Replace vs Insert
-Usando o exemplo do _navbar o replace na hora de renderizar pega todo o html e substitui a tag <div>, tendo o mesmo resultado do arquivo, como se a <div> não existisse.
-Já o `th:insert` vai inserir o html dentro da <div> na qual está sendo chamado e quando redenrizar a tag <div> vai aparecer no código-fonte.
+Usando o exemplo do _navbar o replace na hora de renderizar pega todo o html e substitui a tag `<div>`, tendo o mesmo resultado do arquivo, como se a `<div>` não existisse.
+Já o `th:insert` vai inserir o html dentro da `<div>` na qual está sendo chamado e quando redenrizar a tag `<div>` vai aparecer no código-fonte.
 ### Fragments Parameterizados
 Os parâmetros para exibição são passados no `th:fragment="nome-fragmento (parametro1, parametro2)`
 ```html
