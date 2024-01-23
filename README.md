@@ -114,3 +114,41 @@ Um exemplo clássico é exibir algum elemento de acordo com a regra de autoriza�
   <p th:case="*">User is some other thing</p>
 </div>
 ```
+## Fragments - Template Layout
+Funciona como componentes em Angular, sendo que os arquivos são criados na pasta `fragments` e nomeados com `_nome` para diferenciar de outras páginas. No componente é identificado com `th:fragment="nome-fragmento"`.
+```html
+<nav class="container-fluid" th:fragment="navbar">
+  <ul>
+    <li><strong>Otthon Leão</strong></li>
+  </ul>
+  <ul>
+    <li><a th:href="@{/templates/home/format-data.html}">Formatação de Dados</a></li>
+    <li><a th:href="@{/clients}">Ir para Clientes</a></li>
+  </ul>
+</nav>
+```
+E para chamar o fragmento em uma determinada página pode ser utilizado dento de uma tag `<div>` o `th:replace=~{path/_nome :: nome-fragmento}`.
+```html
+<div th:replace="~{fragments/_navbar :: navbar}"></div>
+```
+#### Replace vs Insert
+Usando o exemplo do _navbar o replace na hora de renderizar pega todo o html e substitui a tag <div>, tendo o mesmo resultado do arquivo, como se a <div> não existisse.
+Já o `th:insert` vai inserir o html dentro da <div> na qual está sendo chamado e quando redenrizar a tag <div> vai aparecer no código-fonte.
+### Fragments Parameterizados
+Os parâmetros para exibição são passados no `th:fragment="nome-fragmento (parametro1, parametro2)`
+```html
+<div class="card" th:fragment="card (title, content)">
+  <div class="card-title">
+    <h3 th:text="${title}"></h3>
+  </div>
+  <div class="card-content">
+    <p th:text="${content}"></p>
+  </div>
+</div>
+```
+Na hora de chamar o fragmento basta inserir os parâmetos, seja direto no HTML ou por algum valor vindo por meio de injeção de conteúdo do Java.
+```html
+<div th:replace="~{fragments/_card :: card ('Spring Boot', 'Thymeleaf é um engine para front-end')}"></div>
+<div th:replace="~{fragments/_card :: card (_, 'Thymeleaf é um engine para front-end')}"></div>
+```
+
