@@ -93,3 +93,24 @@ Usando variáveis ou id:
     </tbody>
 </table>
 ```
+## Condicional
+#### th:if="${...}"
+Se a condicional `if` for verdadeira será renderizado, se for falso não será mostrado, por exemplo a tabela abaixo só vai ser exibida se não estiver vazia. Nesse caso só vai renderizar se a lista de clients for diferente de vazio.
+```html
+<table th:if="${!clients.isEmpty()}">
+```
+#### th:unless="${...}"
+Se a condicional `unless` for verdadeira o elemento não será renderizado.
+Pode funcionar como um _else_, usando o exemplo da tabela do _if_, em que se a tabela estiver vazia, então exiba a linha abaixo. Também pode interpretar como: se o retorno da lista de clients for diferente de vazio, exiba o <h6>
+```html
+<h6 th:unless="${!clients.isEmpty()}">Não existem clientes cadastrados</h6>
+```
+#### th:switch="${...}"
+Um exemplo clássico é exibir algum elemento de acordo com a regra de autorização de um usuário, podendo definir uma exibição default com `*` caso o usuário não se enquadre em nenhuma das opções.
+```html
+<div th:switch="${user.role}">
+  <p th:case="'admin'">User is an administrator</p>
+  <p th:case="#{roles.manager}">User is a manager</p>
+  <p th:case="*">User is some other thing</p>
+</div>
+```

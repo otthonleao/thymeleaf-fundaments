@@ -21,7 +21,7 @@
   <main class="container">
     <h1>Listagem de Clientes</h1>
 
-    <table>
+    <table th:if="${!clients.isEmpty()}">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -44,6 +44,8 @@
         </tr>
       </tbody>
     </table>
+
+    <h6 th:unless="${!clients.isEmpty()}">Não existem clientes cadastrados</h6>
 
     <a th:href="@{/clients/create}" role="button">Novo Cliente</a>
   </main>
