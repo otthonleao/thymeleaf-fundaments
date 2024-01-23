@@ -50,10 +50,23 @@ Após o processamento do template realizado pelo Thymeleaf será gerado um códi
 ```
 
 ## th:href="@{ ... }" - Referências de Links CSS e outros
-````html
+Referenciando CSS:
+```html
 <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css}">
+```
+Direcionando página ou link:
+```html
 <a th:href="@{/clients/create}" role="button">Novo Cliente</a>
+```
+Usando variáveis ou id:
+```html
 <a th:href="@{/clients/edit/{id} (id=${client.id})}" role="button">Editar Cliente</a>
 <a th:href="@{/clients/edit/{id}/{name} (id=${client.id}, ${client.name)}" role="button">Editar Cliente</a>
 <a th:href="@{/clients/delete/{id} (id=${client.id})}" onclick="return confirm('Tem certeza que deseja excluir?')" role="button">Excluir Cliente</a>
-````
+```
+## Injeção de Conteúdo 
+
+```html
+<td th:text="${client.name}">Otthon Leão</td>
+<td>[[${client.name}]]</td>
+```
