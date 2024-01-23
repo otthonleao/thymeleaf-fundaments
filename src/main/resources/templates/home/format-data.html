@@ -1,22 +1,26 @@
-<div th:replace="~{fragments/_navbar :: navbar}"></div>
-<h1>FORMATAÇÃO DE DADOS</h1>
+<html th:replace="~{layout :: layout (~{::title}, ~{::content})}">
+<th:block th:fragment="title">Formatação de Dados</th:block>
+<th:block th:fragment="content">
+    <h1>FORMATAÇÃO DE DADOS</h1>
 
-<p th:text="${#locale}"></p>
-<p th:text="${locale}"></p>
+    <p th:text="${#locale}"></p>
+    <p th:text="${locale}"></p>
 
-<p th:text="${#temporals.format(date, 'FULL')}"></p>
+    <p th:text="${#temporals.format(date, 'FULL')}"></p>
 
-<p th:text="${#temporals.format(datetime, locale)}"></p>
+    <p th:text="${#temporals.format(datetime, locale)}"></p>
 
-<p th:text="${#numbers.formatCurrency(currency)}"></p>
-<p th:text="${#numbers.formatDecimal(currency, 3, 'COMMA', 2, 'POINT')}"></p>
+    <p th:text="${#numbers.formatCurrency(currency)}"></p>
+    <p th:text="${#numbers.formatDecimal(currency, 3, 'COMMA', 2, 'POINT')}"></p>
 
-<p th:text="${#numbers.formatPercent(percent, 1, 1)}"></p>
+    <p th:text="${#numbers.formatPercent(percent, 1, 1)}"></p>
 
-<h2>
-    <a th:href="@{https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#appendix-a-expression-basic-objects}">Acesse a documentação para saber mais sobre Utility Objects</a>
-</h2>
+    <h2>
+        <a th:href="@{https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf.html#appendix-a-expression-basic-objects}">Acesse a documentação para saber mais sobre Utility Objects</a>
+    </h2>
 
-<div class="container">
-    <a onclick="window.history.back()">Voltar</a>
-</div>
+    <div class="container">
+        <a onclick="window.history.back()">Voltar</a>
+    </div>
+</th:block>
+</html>

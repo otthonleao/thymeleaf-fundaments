@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Error 404 - Thymeleaf Fundamentos</title>
-  <!-- Pico CSS Styles -->
-  <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css}">
-</head>
-<body>
-<div th:replace="~{fragments/_navbar :: navbar}"></div>
+<html th:replace="~{layout :: layout (~{::title}, ~{::content})}">
+<th:block th:fragment="title">Error 404</th:block>
+<th:block th:fragment="content">
+  <h1>ERROR 404 - PAGE NOT FOUND</h1>
+  <h4>
+    A página que você procura não foi encontrada
+  </h4>
+  <p>O recurso solicitado não foi encontrado, mas pode ser disponibilizado novamente no futuro. As solicitações subsequentes pelo cliente são permitidas.</p>
 
-  <main class="container">
-    <h1>ERROR 404 - PAGE NOT FOUND</h1>
-    <h4>
-      A página que você procura não foi encontrada
-    </h4>
-    <p>O recurso solicitado não foi encontrado, mas pode ser disponibilizado novamente no futuro. As solicitações subsequentes pelo cliente são permitidas.</p>
+  <div class="container">
     <a onclick="window.history.back()">Voltar</a>
-  </main>
-</body>
+  </div>
+</th:block>
 </html>

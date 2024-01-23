@@ -34,8 +34,8 @@ public class ClientController {
 
     @GetMapping("/create")
     public ModelAndView create() {
-        var model = Map.of("clientForm", new ClientForm());
-        return new ModelAndView("clients/create", model);
+        var model = Map.of("clientForm", new ClientForm(), "pageTitle", "Cadastro de Clientes");
+        return new ModelAndView("clients/form", model);
     }
 
     @PostMapping("/create")
@@ -50,8 +50,8 @@ public class ClientController {
         var clientForm = clientRepository.findById(id)
             .map(ClientForm::of)
             .orElseThrow(() -> new NoSuchElementException("Cliente não encontrado"));
-        var model = Map.of("clientForm", clientForm);
-        return new ModelAndView("clients/edit", model);
+        var model = Map.of("clientForm", clientForm, "pageTitle", "Edição de Clientes");
+        return new ModelAndView("clients/form", model);
     }
 
     @PostMapping("/edit/{id}")

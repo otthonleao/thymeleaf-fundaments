@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Thymeleaf Fundamentos</title>
-
-  <!-- Pico CSS Styles -->
-  <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css}">
-</head>
-<body>
-  <div th:replace="~{fragments/_navbar :: navbar}"></div>
-
-  <main class="container">
+<html th:replace="~{layout :: layout (~{::title}, ~{::content})}">
+  <th:block th:fragment="title">Home</th:block>
+  <th:block th:fragment="content">
     <h1>Thymeleaf Engine</h1>
     <p>
       O Thymeleaf é um template engine que renderiza páginas HTML no back-end de forma dinâmica com Java e Spring. Sendo assim, permite a incorporação de linguagens de programação no HTML possibilitando o uso de estruturas de condição, repetição, herança e diversos outros recursos.
     </p>
-  <span>
+    <span>
     <h3>Thymeleaf vs JSP</h3>
     <p>
       Ambos são template engine para o back-end com Java, porém o Thymeleaf é considerado uma solução mais moderna e flexível do que o JSP que é mais verboso, difícil de trabalhar com padrões de projetos atuais e suporte limitado ao HTML 5 e CSS3.
@@ -37,15 +26,13 @@
     </p>
     <code>
       &lt;ul&gt;<br>
-          &lt;li th:each="user : ${users}"	&gt;<br>
+      &lt;li th:each="user : ${users}"	&gt;<br>
       &lt;a<br>
-                  th:href="/user/{username} (username=${user.username})"<br>
-                  th:text="${user.firstname} + ' ' + ${user.lastname}"<br>
+      th:href="/user/{username} (username=${user.username})"<br>
+      th:text="${user.firstname} + ' ' + ${user.lastname}"<br>
       &gt;&lt;/a&gt;<br>
       &lt;/li&gt;<br>
       &lt;/ul&gt;<br>
     </code>
-
-  </main>
-</body>
+  </th:block>
 </html>

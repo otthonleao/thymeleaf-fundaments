@@ -146,7 +146,7 @@ Os parâmetros para exibição são passados no `th:fragment="nome-fragmento (pa
   </div>
 </div>
 ```
-Na hora de chamar o fragmento basta inserir os parâmetos, seja direto no HTML ou por algum valor vindo por meio de injeção de conteúdo do Java.
+Na hora de chamar o fragmento basta inserir os parâmetos, seja direto no HTML ou por algum valor vindo por meio de injeção de conteúdo do Java. O `_` ignora o parâmetro para não dar erro quando compilar, já que é esperado receber o número de valores indicados nos parametros.
 ```html
 <div th:replace="~{fragments/_card :: card ('Spring Boot', 'Thymeleaf é um engine para front-end')}"></div>
 <div th:replace="~{fragments/_card :: card (_, 'Thymeleaf é um engine para front-end')}"></div>

@@ -1,46 +1,35 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listagem de Clientes</title>
+<html th:replace="~{layout :: layout (~{::title}, ~{::content})}">
+<th:block th:fragment="title">Listagem Cliente</th:block>
+<th:block th:fragment="content">
+  <h1>Listagem de Clientes</h1>
 
-  <!-- Pico CSS Styles -->
-  <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css}">
-</head>
-<body>
-  <div th:replace="~{fragments/_navbar :: navbar}"></div>
+  <table th:if="${!clients.isEmpty()}">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client : ${clients}">
+      <th scope="row" th:text="${client.id}">1</th>
+      <td th:text="${client.name}">Otthon Leão</td>
+      <td>[[${client.email}]]</td>
+      <td th:utext="${client.phone}">(11) 99999-9999</td>
+      <td>
+        <a th:href="@{/clients/edit/{id} (id=${client.id})}" role="button">Editar Cliente</a>
+        <a th:href="@{/clients/delete/{id} (id=${client.id})}" onclick="return confirm('Tem certeza que deseja excluir?')" role="button">Excluir Cliente</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
-  <main class="container">
-    <h1>Listagem de Clientes</h1>
+  <h6 th:unless="${!clients.isEmpty()}">Não existem clientes cadastrados</h6>
 
-    <table th:if="${!clients.isEmpty()}">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nome</th>
-          <th scope="col">E-mail</th>
-          <th scope="col">Telefone</th>
-          <th scope="col">Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr th:each="client : ${clients}">
-          <th scope="row" th:text="${client.id}">1</th>
-          <td th:text="${client.name}">Otthon Leão</td>
-          <td>[[${client.email}]]</td>
-          <td th:utext="${client.phone}">(11) 99999-9999</td>
-          <td>
-            <a th:href="@{/clients/edit/{id} (id=${client.id})}" role="button">Editar Cliente</a>
-            <a th:href="@{/clients/delete/{id} (id=${client.id})}" onclick="return confirm('Tem certeza que deseja excluir?')" role="button">Excluir Cliente</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <a th:href="@{/clients/create}" role="button">Novo Cliente</a>
 
-    <h6 th:unless="${!clients.isEmpty()}">Não existem clientes cadastrados</h6>
-
-    <a th:href="@{/clients/create}" role="button">Novo Cliente</a>
-  </main>
-</body>
+</th:block>
 </html>
